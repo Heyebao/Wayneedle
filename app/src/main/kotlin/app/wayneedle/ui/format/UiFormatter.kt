@@ -25,7 +25,10 @@ private const val SECONDS_PER_HOUR = 3_600L
  * Instances hold `java.text` formatters and are meant to be used from one thread (the UI thread); create
  * one per locale with `remember(locale)`.
  */
-class UiFormatter(val locale: Locale = Locale.getDefault()) {
+class UiFormatter(
+    val locale: Locale = Locale.getDefault(),
+    dateLocale: Locale = locale,
+) {
     private val integerFormat: NumberFormat = NumberFormat.getIntegerInstance(locale).apply {
         isGroupingUsed = false
     }
@@ -34,10 +37,10 @@ class UiFormatter(val locale: Locale = Locale.getDefault()) {
         maximumFractionDigits = 2
     }
     private val dateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM, FormatStyle.SHORT)
-        .withLocale(locale)
-    private val dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(locale)
-    private val longDateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(locale)
-    private val timeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).withLocale(locale)
+        .withLocale(dateLocale)
+    private val dateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withLocale(dateLocale)
+    private val longDateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(dateLocale)
+    private val timeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT).withLocale(dateLocale)
 
     /** A whole number in the user's speed unit, e.g. `54`. Genuine zero is `0`. */
     fun speed(metersPerSecond: Float, unit: SpeedUnit): String =

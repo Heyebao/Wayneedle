@@ -4,6 +4,8 @@
 
 # Wayneedle – GPS Speedometer & Trip Tracker for Android (offline, open source)
 
+**简体中文版** · [中文说明](README.zh-CN.md) · [下载中文版 APK](https://github.com/Heyebao/Wayneedle/releases/latest)
+
 [![Latest release](https://img.shields.io/github/v/release/riyadmondol2006/Wayneedle?label=download&sort=semver)](https://github.com/riyadmondol2006/Wayneedle/releases/latest)
 [![License: Apache 2.0](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Android 8.0+](https://img.shields.io/badge/Android-8.0%2B-3DDC84?logo=android&logoColor=white)](#requirements)

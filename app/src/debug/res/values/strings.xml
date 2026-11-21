@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simplified Chinese adaptation for the standalone Chinese edition. -->
+<resources>
+    <string name="app_name">Wayneedle 中文版</string>
+    <!-- Navigation -->
+    <string name="nav_dashboard">速度表</string>
+    <string name="nav_history">历史记录</string>
+    <string name="nav_settings">设置</string>
+    <!-- Actions -->
+    <string name="action_start">开始</string>
+    <string name="action_pause">暂停</string>
+    <string name="action_resume">继续</string>
+    <string name="action_finish">结束</string>
+    <string name="action_saving">正在保存…</string>
+    <string name="action_discard">放弃行程</string>
+    <string name="action_cancel">取消</string>
+    <string name="action_done">完成</string>
+    <string name="action_delete">删除</string>
+    <string name="action_delete_all">全部删除</string>
+    <string name="action_delete_all_trips">删除所有行程</string>
+    <string name="action_delete_trip">删除此行程</string>
+    <string name="action_delete_trip_from">删除 %1$s 的行程</string>
+    <string name="action_not_now">暂不</string>
+    <string name="action_try_again">重试</string>
+    <string name="action_view_details">查看详情</string>
+    <string name="action_open_trip">打开行程详情</string>
+    <string name="action_back">返回</string>
+    <string name="action_ok">确定</string>
+    <string name="error_delete_failed_title">删除失败</string>
+    <string name="error_delete_failed_body">未删除任何行程。手机可能存储空间不足或暂时忙碌，请稍后重试。</string>
+    <string name="history_load_failed_title">无法读取行程</string>
+    <string name="history_load_failed_body">Wayneedle 无法打开行程存储，已有行程仍在。请尝试释放一些存储空间，然后重新打开应用。</string>
+    <!-- Speedometer -->
+    <string name="speedometer_label">速度表</string>
+    <string name="spoken_speed_unavailable">当前无法获取速度。%1$s</string>
+    <string name="speed_reason_searching">正在搜索 GPS 信号…</string>
+    <string name="speed_reason_gps_off">定位已关闭</string>
+    <string name="speed_reason_permission">需要定位权限</string>
+    <string name="speed_reason_approximate">需要精确定位权限</string>
+    <string name="speed_reason_no_gps">此设备不支持 GPS</string>
+    <string name="unit_speed_kmh">km/h</string>
+    <string name="unit_speed_mph">mph</string>
+    <string name="unit_distance_km">km</string>
+    <string name="unit_distance_mi">mi</string>
+    <!-- Trip status shown under the dial -->
+    <string name="status_ready">就绪</string>
+    <string name="status_recording">记录中</string>
+    <string name="status_paused">已暂停</string>
+    <string name="status_waiting_for_gps">正在等待 GPS 定位…</string>
+    <string name="status_signal_lost">GPS 信号已丢失</string>
+    <string name="status_finished">已结束</string>
+    <!-- GPS signal indicator -->
+    <string name="gps_quality_none">无信号</string>
+    <string name="gps_quality_poor">信号弱</string>
+    <string name="gps_quality_fair">信号一般</string>
+    <string name="gps_quality_good">信号良好</string>
+    <string name="gps_quality_excellent">信号很强</string>
+    <string name="gps_off">GPS 已关闭</string>
+    <string name="gps_accuracy_m">±%1$s m</string>
+    <string name="gps_accuracy_ft">±%1$s ft</string>
+    <string name="gps_satellites_used_of_view">可见 %2$s 颗卫星，已使用 %1$s 颗</string>
+    <string name="spoken_gps_signal">GPS 信号：%1$s</string>
+    <plurals name="gps_satellites_used">
+        <item quantity="one">%1$s 颗卫星</item>
+        <item quantity="other">%1$s 颗卫星</item>
+    </plurals>
+    <!-- Trip statistics -->
+    <string name="stat_current">当前行程</string>
+    <string name="stat_top">最高速度</string>
+    <string name="stat_average">平均速度（不含暂停）</string>
+    <string name="stat_moving_average">移动均速</string>
+    <string name="stat_moving_time">移动时长</string>
+    <string name="stat_total_time_short">总时长</string>
+    <string name="stat_ascent">累计爬升</string>
+    <string name="stat_descent">累计下降</string>
+    <string name="unit_elevation_m">m</string>
+    <string name="unit_elevation_ft">ft</string>
+    <plurals name="spoken_elevation_m">
+        <item quantity="one">%1$s 米</item>
+        <item quantity="other">%1$s 米</item>
+    </plurals>
+    <plurals name="spoken_elevation_ft">
+        <item quantity="one">%1$s 英尺</item>
+        <item quantity="other">%1$s 英尺</item>
+    </plurals>
+    <string name="stats_explanation">记录时长不含手动暂停，移动时长还会扣除等红灯等静止时间。总时长从开始算到结束。平均速度为距离除以记录时长，移动均速为距离除以移动时长。累计爬升和下降根据 GPS 高度估算。</string>
+    <string name="stat_distance">距离</string>
+    <string name="stat_active_time">记录时长</string>
+    <string name="stat_total_time">总时长（含暂停）</string>
+    <string name="spoken_no_value">暂无数据</string>
+    <!-- Spoken forms for screen readers -->
+    <plurals name="spoken_speed_kmh">
+        <item quantity="one">每小时 %1$s 公里</item>
+        <item quantity="other">每小时 %1$s 公里</item>
+    </plurals>
+    <plurals name="spoken_speed_mph">
+        <item quantity="one">每小时 %1$s 英里</item>
+        <item quantity="other">每小时 %1$s 英里</item>
+    </plurals>
+    <plurals name="spoken_distance_km">
+        <item quantity="one">%1$s 公里</item>
+        <item quantity="other">%1$s 公里</item>
+    </plurals>
+    <plurals name="spoken_distance_mi">
+        <item quantity="one">%1$s 英里</item>
+        <item quantity="other">%1$s 英里</item>
+    </plurals>
+    <plurals name="spoken_accuracy_m">
+        <item quantity="one">误差范围 %1$s 米</item>
+        <item quantity="other">误差范围 %1$s 米</item>
+    </plurals>
+    <plurals name="spoken_accuracy_ft">
+        <item quantity="one">误差范围 %1$s 英尺</item>
+        <item quantity="other">误差范围 %1$s 英尺</item>
+    </plurals>
+    <plurals name="spoken_hours">
+        <item quantity="one">%1$s 小时</item>
+        <item quantity="other">%1$s 小时</item>
+    </plurals>
+    <plurals name="spoken_minutes">
+        <item quantity="one">%1$s 分钟</item>
+        <item quantity="other">%1$s 分钟</item>
+    </plurals>
+    <plurals name="spoken_seconds">
+        <item quantity="one">%1$s 秒</item>
+        <item quantity="other">%1$s 秒</item>
+    </plurals>
+    <!-- Location permission and GPS states -->
+    <string name="gate_no_gps_title">此设备不支持 GPS</string>
+    <string name="gate_no_gps_body">Wayneedle 需要 GPS 接收器才能测量速度和记录行程。此设备没有 GPS 接收器，无法使用这些功能。</string>
+    <string name="gate_rationale_title">允许精确定位</string>
+    <string name="gate_rationale_body">Wayneedle 需要精确定位权限，才能通过 GPS 测量速度和距离。位置信息仅在本机使用。</string>
+    <string name="gate_retry_title">需要定位权限</string>
+    <string name="gate_retry_body">请允许精确定位，以便 Wayneedle 测量速度。</string>
+    <string name="gate_blocked_title">定位权限已被禁用</string>
+    <string name="gate_blocked_body">Android 不会再弹出权限请求。请打开应用设置，在「权限」中选择「位置信息」，并开启精确定位。</string>
+    <string name="gate_approximate_title">需要精确定位</string>
+    <string name="gate_approximate_body">大致位置无法用于测速。请为 Wayneedle 开启精确定位。</string>
+    <string name="gate_gps_off_title">定位已关闭</string>
+    <string name="gate_gps_off_body">请在手机设置中开启定位，以便 Wayneedle 获取 GPS 信号。</string>
+    <string name="gate_action_allow">允许定位</string>
+    <string name="gate_action_try_again">重试</string>
+    <string name="gate_action_allow_precise">允许精确定位</string>
+    <string name="gate_action_open_app_settings">打开应用设置</string>
+    <string name="gate_action_turn_on_location">开启定位</string>
+    <string name="gate_banner_gps_off">GPS 已关闭，当前无法测量速度和距离。</string>
+    <string name="banner_background_unavailable">Android 未允许后台记录，当前行程仅在 Wayneedle 显示时记录。请暂停后继续，再试一次。</string>
+    <string name="banner_notifications_off">通知已关闭，行程记录通知及其中的暂停按钮将不会显示。</string>
+    <string name="action_turn_on">开启</string>
+    <string name="action_hud">抬头显示（HUD）</string>
+    <string name="hud_exit">退出抬头显示</string>
+    <string name="hud_mirror">风挡镜像</string>
+    <string name="hud_toggle_controls">显示或隐藏控件</string>
+    <string name="hud_hint">轻触屏幕可隐藏控件。如需将速度投映到挡风玻璃上，请把手机平放在仪表台上，让手机顶部朝向自己，然后开启风挡镜像。</string>
+    <string name="compass_n">北</string>
+    <string name="compass_ne">东北</string>
+    <string name="compass_e">东</string>
+    <string name="compass_se">东南</string>
+    <string name="compass_s">南</string>
+    <string name="compass_sw">西南</string>
+    <string name="compass_w">西</string>
+    <string name="compass_nw">西北</string>
+    <string name="heading_value">%1$s %2$s°</string>
+    <string name="spoken_heading">朝向%1$s，%2$s 度</string>
+    <string name="action_gps_details">查看 GPS 详情</string>
+    <string name="gps_details_title">GPS 详情</string>
+    <string name="gps_details_signal">信号</string>
+    <string name="gps_details_accuracy">位置精度</string>
+    <string name="gps_details_speed_accuracy">速度精度</string>
+    <string name="gps_details_satellites">使用数 / 可见数</string>
+    <string name="gps_details_fix_age">上次定位</string>
+    <string name="gps_details_fix_age_value">%1$s 秒前</string>
+    <string name="gps_details_altitude">GPS 高度</string>
+    <string name="gps_details_heading">方向</string>
+    <string name="gps_details_note">GPS 高度以 WGS-84 椭球面为基准，与地图标注的海拔可能相差数十米。移动时才显示方向。</string>
+    <string name="settings_updates">版本</string>
+    <string name="settings_update_check">自动检查官方版本</string>
+    <string name="settings_update_check_summary">每天向 GitHub 检查一次官方版本，不会发送个人信息或行程数据。</string>
+    <string name="action_check_now">查看官方版本</string>
+    <string name="update_checking">正在检查…</string>
+    <string name="update_up_to_date">当前基于最新官方版本（%1$s）。</string>
+    <string name="update_failed">无法连接 GitHub，请检查网络后重试。</string>
+    <string name="update_available_title">官方有新版本</string>
+    <string name="update_available_body">Wayneedle 官方已发布 %1$s。当前应用版本为 %2$s。</string>
+    <string name="action_download">查看官方版本</string>
+    <string name="action_later">稍后</string>
+    <string name="action_skip_version">跳过此版本</string>
+    <string name="banner_battery_restricted">Wayneedle 的电池用量设为「受限」，锁屏后 Android 可能会停止记录。</string>
+    <string name="banner_battery_saver_gps">省电模式会在熄屏时关闭 GPS，导致行程无法继续测速和测距。</string>
+    <string name="action_change">修改</string>
+    <string name="action_hide_warning">隐藏这条提示</string>
+    <string name="spoken_over_speed_limit">已超过提醒速度</string>
+    <string name="status_over_speed_limit">超过 %1$s %2$s</string>
+    <string name="settings_speed_alert">超速提醒</string>
+    <string name="settings_speed_alert_switch">超过设定速度时提醒</string>
+    <string name="settings_speed_alert_summary">每次超过阈值时，速度会变红，手机会振动一下。记录行程时，应用在后台也可提醒。</string>
+    <string name="settings_speed_alert_sound">同时播放提示音</string>
+    <string name="settings_speed_alert_sound_summary">振动时播放一声短提示音。手机处于静音模式时不播放。</string>
+    <string name="settings_speed_alert_limit">提醒阈值</string>
+    <string name="settings_speed_alert_value">%1$s %2$s</string>
+    <string name="action_lower_limit">降低提醒阈值</string>
+    <string name="action_raise_limit">提高提醒阈值</string>
+    <string name="gate_banner_permission">缺少精确定位权限，当前无法测量速度和距离。</string>
+    <!-- Dialogs -->
+    <string name="dialog_finish_title">结束并保存行程？</string>
+    <string name="dialog_finish_body">将把这段用时 %3$s、距离 %1$s %2$s 的行程保存到历史记录。</string>
+    <string name="dialog_finish_body_empty">尚未记录到行驶距离。仍可保存这段行程。</string>
+    <string name="dialog_discard_title">放弃这段行程？</string>
+    <string name="dialog_discard_body">这段行程及已记录的数据将被永久删除，无法撤销。</string>
+    <string name="dialog_save_failed_title">无法保存行程</string>
+    <string name="dialog_save_failed_body">行程仍处于暂停状态，数据已保留。请检查手机存储空间，然后重试。</string>
+    <string name="dialog_delete_trip_title">删除这段行程？</string>
+    <string name="dialog_delete_trip_body">%1$s 的行程将被永久删除，无法撤销。</string>
+    <string name="dialog_delete_all_title">删除所有行程？</string>
+    <plurals name="dialog_delete_all_body">
+        <item quantity="one">将永久删除 %1$d 段行程，无法撤销。</item>
+        <item quantity="other">将永久删除 %1$d 段行程，无法撤销。</item>
+    </plurals>
+    <!-- Recovered trip and trip summary -->
+    <string name="recovered_title">已恢复行程</string>
+    <string name="recovered_body">记录过程中应用已关闭。已恢复行程（用时 %3$s，距离 %1$s %2$s）。应用关闭期间的时间不计入记录时长。</string>
+    <string name="summary_title">行程已保存</string>
+    <!-- History and trip details -->
+    <string name="history_totals_title">全部行程</string>
+    <string name="stat_trips">行程数</string>
+    <string name="action_export_trips">导出行程为 CSV</string>
+    <plurals name="export_done">
+        <item quantity="one">已导出 %1$d 段行程</item>
+        <item quantity="other">已导出 %1$d 段行程</item>
+    </plurals>
+    <string name="export_failed_title">导出失败</string>
+    <string name="export_failed_body">无法写入文件，行程数据未受影响。请重试或选择其他保存位置。</string>
+    <string name="history_empty_title">暂无行程</string>
+    <string name="history_empty_body">结束并保存行程后，可在这里查看。行程数据仅保存在本机。</string>
+    <string name="history_trip_meta">%1$s · 最高 %2$s %4$s · 平均 %3$s %4$s</string>
+    <string name="day_today">今天</string>
+    <string name="day_yesterday">昨天</string>
+    <string name="spoken_trip_summary">%1$s。距离 %2$s，用时 %3$s。最高速度 %4$s，平均速度 %5$s。</string>
+    <string name="trip_detail_title">行程详情</string>
+    <string name="trip_not_found_title">找不到行程</string>
+    <string name="trip_not_found_body">这段行程已不存在，可能已被删除。</string>
+    <string name="detail_started">开始时间</string>
+    <string name="detail_finished">结束时间</string>
+    <!-- Settings -->
+    <string name="settings_units">单位</string>
+    <string name="settings_units_explanation">速度和距离使用同一套单位。选择 km/h 时，距离单位为公里；选择 mph 时，距离单位为英里。</string>
+    <string name="settings_unit_kmh">km/h</string>
+    <string name="settings_unit_mph">mph</string>
+    <string name="settings_appearance">外观</string>
+    <string name="settings_theme">主题</string>
+    <string name="settings_theme_system">跟随系统</string>
+    <string name="settings_theme_light">浅色</string>
+    <string name="settings_theme_dark">深色</string>
+    <string name="settings_dynamic_color">动态配色</string>
+    <string name="settings_dynamic_color_summary">使用壁纸颜色（Material You）。</string>
+    <string name="settings_dynamic_color_unsupported">需要 Android 12 或更高版本。</string>
+    <string name="settings_display">显示</string>
+    <string name="settings_keep_screen_on">保持屏幕常亮</string>
+    <string name="settings_keep_screen_on_summary">Wayneedle 在前台时，移动期间和停下后的 5 分钟内保持亮屏，之后恢复系统的自动熄屏设置。</string>
+    <string name="settings_data">行程数据</string>
+    <plurals name="settings_trip_count">
+        <item quantity="one">本机保存了 %1$d 段行程。</item>
+        <item quantity="other">本机保存了 %1$d 段行程。</item>
+    </plurals>
+    <string name="settings_about">关于</string>
+    <string name="settings_about_name_version">%1$s %2$s</string>
+    <string name="settings_about_license">依据 Apache 许可证 2.0 开源。</string>
+    <string name="settings_about_offline" formatted="false">测速、行程记录和导出均可离线使用。无需账号，无广告，也不收集使用数据。</string>
+</resources>

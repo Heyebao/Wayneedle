@@ -1,6 +1,7 @@
 package app.wayneedle.ui.format
 
 import app.wayneedle.domain.model.SpeedUnit
+import java.time.LocalDate
 import java.time.ZoneOffset
 import java.util.Locale
 import kotlin.test.Test
@@ -103,6 +104,15 @@ class UiFormatterTest {
         val berlin = de.dateTime(epoch, ZoneOffset.ofHours(1))
         assertTrue(berlin.contains("13:00"), berlin)
         assertTrue(de.date(epoch, ZoneOffset.UTC).contains("2026"))
+    }
+
+    @Test
+    fun `chinese dates can be displayed alongside the device number format`() {
+        val formatter = UiFormatter(Locale.GERMANY, dateLocale = Locale.SIMPLIFIED_CHINESE)
+        val date = formatter.fullDate(LocalDate.of(2026, 10, 25))
+
+        assertTrue(date.contains("星期日"), date)
+        assertEquals("0,50", formatter.distance(500.0, SpeedUnit.KMH))
     }
 
     @Test

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Simplified Chinese adaptation for the standalone Chinese edition. -->
+<resources>
+    <!-- Notification channel (visible in system settings) -->
+    <string name="service_channel_name">行程记录</string>
+    <string name="service_channel_description">记录行程时显示此通知，让 Wayneedle 在熄屏后仍可测速。</string>
+    <!-- Notification titles -->
+    <string name="service_title_app">Wayneedle 中文版</string>
+    <string name="service_title_recording">Wayneedle · 正在记录行程</string>
+    <string name="service_title_paused">Wayneedle · 行程已暂停</string>
+    <!-- Notification text. Placeholders are positional so translators may reorder them. -->
+    <string name="service_text_starting">正在启动…</string>
+    <string name="service_text_waiting_for_gps">正在等待 GPS 定位…</string>
+    <string name="service_text_gps_off">GPS 已关闭</string>
+    <string name="service_text_permission_needed">需要定位权限</string>
+    <string name="service_text_recording">%1$s · %2$s · %3$s</string>
+    <string name="service_text_paused">%1$s · %2$s</string>
+    <!-- Unit formats; %1$s is an already localised number -->
+    <string name="service_speed_kmh">%1$s km/h</string>
+    <string name="service_speed_mph">%1$s mph</string>
+    <string name="service_distance_km">%1$s km</string>
+    <string name="service_distance_mi">%1$s mi</string>
+    <!-- Notification actions -->
+    <string name="service_action_pause">暂停</string>
+    <string name="service_action_resume">继续</string>
+</resources>

@@ -68,7 +68,7 @@ fun UpdateDialog(
 
 private const val MAX_NOTES_CHARS = 1_500
 
-private fun Context.openReleasePage(url: String) {
+internal fun Context.openReleasePage(url: String) {
     try {
         startActivity(Intent(Intent.ACTION_VIEW, url.toUri()).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
     } catch (_: ActivityNotFoundException) {

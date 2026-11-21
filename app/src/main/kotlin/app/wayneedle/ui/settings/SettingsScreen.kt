@@ -26,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.LiveRegionMode
@@ -48,11 +49,13 @@ import app.wayneedle.ui.components.ExpressiveButton
 import app.wayneedle.ui.components.ExpressiveButtonStyle
 import app.wayneedle.ui.components.TitleScaffold
 import app.wayneedle.ui.components.UpdateDialog
+import app.wayneedle.ui.components.openReleasePage
 import app.wayneedle.ui.format.rememberUiFormatter
 import app.wayneedle.ui.format.speedLabelRes
 import app.wayneedle.ui.icons.WayneedleIcons
 import app.wayneedle.ui.theme.DynamicColorSupported
 import app.wayneedle.ui.theme.tabular
+import app.wayneedle.update.GitHubReleaseSource
 import app.wayneedle.update.UpdateCheckResult
 
 @Composable
@@ -123,7 +126,11 @@ fun SettingsScreen(
                 AppearanceSection(state.settings, dynamicColorSupported, callbacks)
                 DisplaySection(state.settings.keepScreenOn, callbacks.onKeepScreenOn)
                 DataSection(state.tripCount, callbacks.onRequestDeleteAll)
-                UpdatesSection(state, versionName, callbacks)
+                if (BuildConfig.DEBUG) {
+                    OfficialReleasesSection()
+                } else {
+                    UpdatesSection(state, versionName, callbacks)
+                }
                 AboutSection(versionName)
             }
         }
@@ -144,6 +151,19 @@ fun SettingsScreen(
     val updateResult = (state.manualUpdateCheck as? ManualUpdateCheck.Done)?.result
     if (updateResult is UpdateCheckResult.Available) {
         UpdateDialog(updateResult.release, onDismiss = callbacks.onDismissUpdateCheck)
+    }
+}
+
+@Composable
+private fun OfficialReleasesSection() {
+    val context = LocalContext.current
+    SettingsSection(stringResource(R.string.settings_updates)) {
+        ExpressiveButton(
+            label = stringResource(R.string.action_check_now),
+            style = ExpressiveButtonStyle.TONAL,
+            onClick = { context.openReleasePage(GitHubReleaseSource.RELEASES_PAGE_URL) },
+            modifier = Modifier.fillMaxWidth(),
+        )
     }
 }
 
