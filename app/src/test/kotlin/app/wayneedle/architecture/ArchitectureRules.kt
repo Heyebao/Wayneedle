@@ -124,12 +124,13 @@ internal object ArchitectureRules {
     private val urlPattern = Regex("""https?://[^\s"'<>)\]]+""", RegexOption.IGNORE_CASE)
 
     /**
-     * URLs that may appear in main Kotlin sources: only the project's own GitHub repository, for the optional
-     * update check (`app.wayneedle.update`). Add an entry (with a justification) only for a reviewed exception.
+     * URLs that may appear in main Kotlin sources. Add an entry (with a justification) only for a reviewed exception.
      */
     val allowedUrlPrefixes: List<String> = listOf(
         "https://api.github.com/repos/riyadmondol2006/Wayneedle/releases/latest",
         "https://github.com/riyadmondol2006/Wayneedle/",
+        // The Chinese build opens its own release page in the browser on request.
+        "https://github.com/Heyebao/Wayneedle/releases",
     )
 
     // ---- network confinement -------------------------------------------------------------------------------

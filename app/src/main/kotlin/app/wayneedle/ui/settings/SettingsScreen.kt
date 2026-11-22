@@ -55,7 +55,6 @@ import app.wayneedle.ui.format.speedLabelRes
 import app.wayneedle.ui.icons.WayneedleIcons
 import app.wayneedle.ui.theme.DynamicColorSupported
 import app.wayneedle.ui.theme.tabular
-import app.wayneedle.update.GitHubReleaseSource
 import app.wayneedle.update.UpdateCheckResult
 
 @Composable
@@ -127,7 +126,7 @@ fun SettingsScreen(
                 DisplaySection(state.settings.keepScreenOn, callbacks.onKeepScreenOn)
                 DataSection(state.tripCount, callbacks.onRequestDeleteAll)
                 if (BuildConfig.DEBUG) {
-                    OfficialReleasesSection()
+                    ChineseReleasesSection()
                 } else {
                     UpdatesSection(state, versionName, callbacks)
                 }
@@ -155,17 +154,19 @@ fun SettingsScreen(
 }
 
 @Composable
-private fun OfficialReleasesSection() {
+private fun ChineseReleasesSection() {
     val context = LocalContext.current
     SettingsSection(stringResource(R.string.settings_updates)) {
         ExpressiveButton(
             label = stringResource(R.string.action_check_now),
             style = ExpressiveButtonStyle.TONAL,
-            onClick = { context.openReleasePage(GitHubReleaseSource.RELEASES_PAGE_URL) },
+            onClick = { context.openReleasePage(CHINESE_RELEASES_PAGE_URL) },
             modifier = Modifier.fillMaxWidth(),
         )
     }
 }
+
+private const val CHINESE_RELEASES_PAGE_URL = "https://github.com/Heyebao/Wayneedle/releases"
 
 @Composable
 private fun UpdatesSection(state: SettingsUiState, versionName: String, callbacks: SettingsCallbacks) {
