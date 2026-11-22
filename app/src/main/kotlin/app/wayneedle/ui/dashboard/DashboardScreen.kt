@@ -40,9 +40,8 @@ private val ScreenPadding = 16.dp
 /**
  * The main screen: speedometer, trip statistics and trip controls. Stateless; see [DashboardRoute].
  *
- * Portrait: header, gauge and statistics scroll together while the controls stay pinned at the bottom,
- * and at normal font size everything fits one 411x891 dp screen without scrolling. Wide windows put the
- * gauge beside the statistics and controls.
+ * In portrait, the header, gauge and statistics scroll while the controls stay pinned at the bottom.
+ * Wide windows put the gauge beside the statistics and controls.
  */
 @Composable
 fun DashboardScreen(

@@ -1,5 +1,8 @@
 package app.wayneedle.ui
 
+import androidx.compose.foundation.layout.width
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.assertHeightIsAtLeast
 import androidx.compose.ui.test.assertIsDisplayed
@@ -9,21 +12,28 @@ import androidx.compose.ui.test.junit4.v2.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.performSemanticsAction
+import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.unit.dp
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import app.wayneedle.R
 import app.wayneedle.domain.model.SpeedUnit
 import app.wayneedle.ui.dashboard.DashboardActions
 import app.wayneedle.ui.dashboard.DashboardDialog
+import app.wayneedle.ui.dashboard.DashboardHeader
 import app.wayneedle.ui.dashboard.DashboardScreen
 import app.wayneedle.ui.dashboard.DashboardUiState
 import app.wayneedle.ui.dashboard.LocationGate
 import app.wayneedle.ui.permission.BackgroundRisk
 import app.wayneedle.ui.preview.PreviewData
+import app.wayneedle.ui.speedometer.GPS_INDICATOR_TAG
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -61,6 +71,27 @@ class DashboardScreenTest {
     ) = rule.setWayneedleContent(darkTheme = dark, fontScale = fontScale) { DashboardScreen(state, gate, actions) }
 
     // ---- idle ---------------------------------------------------------------------------------------------------
+
+    @Test
+    fun longGpsDetailsOnANarrowScreenLeaveTheTitleOnOneLine() {
+        rule.setWayneedleContent {
+            DashboardHeader(
+                unit = SpeedUnit.KMH,
+                gps = PreviewData.goodGps.copy(satellitesUsed = 19, satellitesInView = 98),
+                modifier = Modifier.width(360.dp),
+            )
+        }
+
+        val layouts = mutableListOf<TextLayoutResult>()
+        val title = rule.onNodeWithText(string(R.string.dashboard_title)).assertIsDisplayed()
+        title.performSemanticsAction(SemanticsActions.GetTextLayoutResult) { it(layouts) }
+        val layout = layouts.single()
+        assertEquals(1, layout.lineCount)
+        assertFalse(layout.hasVisualOverflow)
+
+        val gps = rule.onNodeWithTag(GPS_INDICATOR_TAG).assertIsDisplayed().assertHasClickAction()
+        assertTrue(gps.fetchSemanticsNode().boundsInRoot.top >= title.fetchSemanticsNode().boundsInRoot.bottom)
+    }
 
     @Test
     fun idleShowsAProminentStartButtonThatStartsATrip() {

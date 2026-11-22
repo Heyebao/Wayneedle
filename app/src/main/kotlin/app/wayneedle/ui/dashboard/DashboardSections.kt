@@ -1,6 +1,7 @@
 package app.wayneedle.ui.dashboard
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
@@ -28,6 +29,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.wayneedle.R
 import app.wayneedle.domain.model.GpsStatus
@@ -56,6 +58,7 @@ import app.wayneedle.ui.theme.LocalExtraColors
 import kotlin.math.roundToInt
 
 private const val HEADER_STACK_FONT_SCALE = 1.3f
+private const val HEADER_INLINE_MIN_WIDTH_DP = 400
 private const val THREE_COLUMN_MAX_FONT_SCALE = 1.3f
 private const val TWO_COLUMN_MAX_FONT_SCALE = 1.8f
 private const val ONE_COLUMN_FONT_SCALE = 1.6f
@@ -69,29 +72,32 @@ internal fun DashboardHeader(
     modifier: Modifier = Modifier,
     onOpenHud: () -> Unit = {},
 ) {
-    val stacked = LocalDensity.current.fontScale >= HEADER_STACK_FONT_SCALE
     var showDetails by rememberSaveable { mutableStateOf(false) }
-    if (stacked) {
-        Column(modifier.heightIn(min = 48.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            Row(verticalAlignment = Alignment.CenterVertically) {
-                Wordmark(Modifier.weight(1f))
+    BoxWithConstraints(modifier.heightIn(min = 48.dp)) {
+        val stacked = maxWidth < HEADER_INLINE_MIN_WIDTH_DP.dp ||
+            LocalDensity.current.fontScale >= HEADER_STACK_FONT_SCALE
+        if (stacked) {
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+                    Wordmark(Modifier.weight(1f))
+                    IconButton(onClick = onOpenHud) {
+                        Icon(WayneedleIcons.Hud, contentDescription = stringResource(R.string.action_hud))
+                    }
+                }
+                GpsSignalIndicator(gps, unit, onClick = { showDetails = true })
+            }
+        } else {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                Wordmark()
                 IconButton(onClick = onOpenHud) {
                     Icon(WayneedleIcons.Hud, contentDescription = stringResource(R.string.action_hud))
                 }
+                GpsSignalIndicator(gps, unit, Modifier.weight(1f, fill = false), onClick = { showDetails = true })
             }
-            GpsSignalIndicator(gps, unit, onClick = { showDetails = true })
-        }
-    } else {
-        Row(
-            modifier = modifier.heightIn(min = 48.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween,
-        ) {
-            Wordmark(Modifier.weight(1f))
-            IconButton(onClick = onOpenHud) {
-                Icon(WayneedleIcons.Hud, contentDescription = stringResource(R.string.action_hud))
-            }
-            GpsSignalIndicator(gps, unit, onClick = { showDetails = true })
         }
     }
     if (showDetails) GpsDetailsDialog(gps, unit, onDismiss = { showDetails = false })
@@ -107,9 +113,12 @@ private fun Wordmark(modifier: Modifier = Modifier) {
             modifier = Modifier.size(28.dp),
         )
         Text(
-            text = stringResource(R.string.app_name),
+            text = stringResource(R.string.dashboard_title),
             style = MaterialTheme.typography.titleLarge,
             color = MaterialTheme.colorScheme.onSurface,
+            maxLines = 1,
+            softWrap = false,
+            overflow = TextOverflow.Ellipsis,
             modifier = Modifier.semantics { heading() },
         )
     }
